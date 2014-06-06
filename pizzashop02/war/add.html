@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>注文画面</title>
+
+
+<script type="text/javascript" src=lib.js"></script>
+<script>
+	//東京の配列
+	var tokyo = new Array("", "小平市", "国分寺市", "世田谷区", "江東区", "江戸川区", "豊島区");
+
+	//神奈川の配列
+	var kanagawa = new Array("", "横浜市", "川崎市", "相模原市", "小田原市", "横須賀市", "箱根町");
+
+	//香川の配列
+	var kagawa = new Array("", "高松市", "丸亀市", "坂出市", "観音寺市", "三豊市", "満濃町");
+
+	function teamSet() {
+
+		//オプションタグを連続して書き換える
+		for (i = 1; i < 7; i++) {
+
+			//選択したリーグによって分岐
+			switch (document.selbox.address1.selectedIndex) {
+			case 0:
+				document.selbox.address2.options[i].text = "";
+				break;
+			case 1:
+				document.selbox.address2.options[i].text = tokyo[i];
+				break;
+			case 2:
+				document.selbox.address2.options[i].text = kanagawa[i];
+				break;
+			case 3:
+				document.selbox.address2.options[i].text = kagawa[i];
+				break;
+			}
+		}
+
+		document.selbox.address2.selectedIndex = 0;
+	}
+</script>
+
+</head>
+<style type="text/css">
+<!--
+body {
+	background-color: #ffffff;
+	background-image: url(pizza.jpeg);
+	background-position: right bottom;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+-->
+</style>
+
+
+<body>
+
+
+
+
+	<CENTER>
+		<h1>注文画面</h1>
+		<table>
+			<form method="post" action="/add" name="selbox">
+				<tr>
+					<th>お名前：</th>
+					<td><input type="text" name="title"></td>
+				</tr>
+				<tr>
+					<th>ご住所：</th>
+					<td><select name="address1" onchange="teamSet()">
+							<option value="">*都道府県選択</option>
+							<option value="東京都">東京都</option>
+							<option value="神奈川県">神奈川県</option>
+							<option value="香川県">香川県</option>
+					</select> <select name="address2">
+							<option value="0">*市町村選択</option>
+							<option value="1"></option>
+							<option value="2"></option>
+							<option value="3"></option>
+							<option value="4"></option>
+							<option value="5"></option>
+							<option value="6"></option>
+					</select></td>
+					<td><input type="text" name="address"></td>
+				</tr>
+				</tr>
+				<tr>
+					<th>電話番号：</th>
+					<td><input type="text" name="phone"></td>
+				</tr>
+				<tr>
+					<th>お値段/枚:</th>
+					<td><input type="text" name="price" value="1000"></td>
+				</tr>
+				<tr>
+					<th>枚数:</th>
+					<td><select name="count" size="1">
+							<option value="0" selected="selected">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+					</select></td>
+				</tr>
+				<tr>
+					<th>決済方法:</th>
+					<td><select name="pay" size="1">
+							<option value="現金" selected="selected">現金</option>
+							<option value="カード">カード</option>
+							<option value="電子マネー">電子マネー</option>
+					</select></td>
+				<tr>
+					<th></th>
+					<td><input type="submit" value="追加"></td>
+				</tr>
+			</form>
+		</table>
+		<br> <br>
+		<div>
+			<a href="index.html">topに戻る</a>
+		</div>
+	</CENTER>
+</body>
+
+
+</html>

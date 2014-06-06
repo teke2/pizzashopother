@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>デリバリー注文一覧</title>
+<script type="text/javascript" src="lib.js"></script>
+<script type="text/javascript">
+<!--
+	function callback(request) {
+		var json = eval(request.responseText);
+		var res = '';
+		if (json.length == 1) {
+			res += '<tr><td>' + json[0].id + '</td></tr>';
+			res += '<tr><td>' + json[0].title + '</td></tr>';
+			res += '<tr><td>' + json[0].count + '</td></tr>';
+			res += '<tr><td>' + json[0].price + '</td></tr>';
+			res += '<tr><td>' + json[0].phone + '</td></tr>';
+			res += '<tr><td>' + json[0].address + '</td></tr>';
+			res += '<tr><td>' + json[0].haitatsu + '</td></tr>';
+			res += '<tr><td>' + json[0].pay + '</td></tr>';
+		} else {
+			for (var i = 0; i < json.length; i++) {
+				res += '<tr><td><a href="javascript:return false;" onclick="getData('
+						+ json[i].id + ');">' + json[i].id + '</a></td>';
+				res += '<td>' + json[i].title + '</td>' + '<td>' + json[i].date
+						+ '</td>' + '<td><a href="edit.html?id=' + json[i].id
+						+ '">Edit（配達）</td>' + '<td><a href="del.html?id='
+						+ json[i].id + '">Delete</td></tr>';
+			}
+		}
+		var obj = document.getElementById("datatable");
+		obj.innerHTML = res;
+
+	}
+//-->
+</script>
+</head>
+
+<style type="text/css">
+<!--
+body {
+	background-color: #ffffff;
+	background-image: url(pizza.jpeg);
+	background-position: right bottom;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+-->
+</style>
+<body onload="getData(null);">
+	<h1>デリバリー注文一覧</h1>
+
+	<table id="datatable" border="2">
+		<tr>
+			<td>wait...</td>
+		</tr>
+	</table>
+	<br>
+	<div>
+		<a href="shopselect.html">注文選択に戻る</a>
+	</div>
+</body>
+</html>

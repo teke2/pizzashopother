@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>注文画面</title>
+
+
+<script type="text/javascript" src=lib.js"></script>
+<script>
+	//東京の配列
+	var takeout = new Array("", "", "", "", "", "選択する必要はありません", "", "", "", "",
+			"");
+
+	//
+	var shop = new Array("", "1人", "2人", "3人", "4人", "5人", "6人", "7人", "8人",
+			"9人", "10人");
+
+	function teamSet() {
+
+		//オプションタグを連続して書き換える
+		for (i = 1; i < 11; i++) {
+
+			switch (document.selbox.eat.selectedIndex) {
+			case 0:
+				document.selbox.eat2.options[i].text = "";
+				break;
+			case 1:
+				document.selbox.eat2.options[i].text = takeout[i];
+				break;
+			case 2:
+				document.selbox.eat2.options[i].text = shop[i];
+				break;
+			}
+		}
+
+		//チーム名のセレクトボックスの選択番号を０にする
+		document.selbox.eat2.selectedIndex = 0;
+	}
+</script>
+
+</head>
+<style type="text/css">
+<!--
+body {
+	background-color: #ffffff;
+	background-image: url(pizza.jpeg);
+	background-position: right bottom;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+-->
+</style>
+
+
+<body>
+
+
+
+
+	<CENTER>
+		<h1>注文画面</h1>
+		<table>
+			<form method="post" action="/add2" name="selbox">
+				<tr>
+					<th>お名前：</th>
+					<td><input type="text" name="title"></td>
+				</tr>
+				<tr>
+					<th>飲食方法の選択：</th>
+					<td><select name="eat" onchange="teamSet()">
+							<option value="">*テイクアウトしますか？</option>
+							<option value="テイクアウト">テイクアウト</option>
+							<option value="お店でたべる">お店でたべる</option>
+					</select> <select name="eat2">
+							<option value="0">*ご来店人数</option>
+							<option value="1"></option>
+							<option value="2"></option>
+							<option value="3"></option>
+							<option value="4"></option>
+							<option value="5"></option>
+							<option value="6"></option>
+							<option value="7"></option>
+							<option value="8"></option>
+							<option value="9"></option>
+							<option value="10"></option>
+					</select>
+				</tr>
+				<tr>
+					<th>電話番号：</th>
+					<td><input type="text" name="phone"></td>
+				</tr>
+				<tr>
+					<th>お値段/枚:</th>
+					<td><input type="text" name="price" value="1000"></td>
+				</tr>
+				<tr>
+					<th>枚数:</th>
+					<td><select name="count" size="1">
+							<option value="0" selected="selected">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+					</select></td>
+				</tr>
+				<tr>
+					<th>いつご来店されますか？</th>
+					<td><input type="text" name="day" value="1月1日"></td>
+				</tr>
+				<tr>
+					<th>ご来店時間</th>
+					<td><select name="time" size="1">
+							<option value="11時" selected="selected">11時</option>
+							<option value="12時">12時</option>
+							<option value="13時">13時</option>
+							<option value="14時">14時</option>
+							<option value="15時">15時</option>
+							<option value="16時">16時</option>
+							<option value="17時">17時</option>
+							<option value="18時">18時</option>
+							<option value="19時">19時</option>
+							<option value="20時">20時</option>
+							<option value="21時">21時</option>
+					</select></td>
+				</tr>
+
+
+			<th></th>
+			<td><input type="submit" value="追加"></td>
+			</tr>
+			</form>
+		</table>
+		<br> <br>
+		<div>
+			<a href="index.html">topに戻る</a>
+		</div>
+	</CENTER>
+</body>
+
+
+</html>

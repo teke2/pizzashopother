@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>注文の更新</title>
+<script type="text/javascript" src="lib.js"></script>
+<script type="text/javascript">
+<!--
+	function initial() {
+		var datas = getQuery();
+		getData(datas.id);
+	}
+
+	function callback(request) {
+		var arr = eval(request.responseText);
+		var data = arr[0];
+		document.getElementById("id").value = data.id;
+		document.getElementById("title").value = data.title;
+		document.getElementById("count").value = data.count;
+		document.getElementById("address").value = data.address;
+		document.getElementById("haitatsu").value = data.haitatsu;
+		document.getElementById("pay").value = data.pay;
+	}
+//-->
+</script>
+</head>
+<style type="text/css">
+<!--
+body {
+	background-color: #ffffff;
+	background-image: url(pizza.jpeg);
+	background-position: right bottom;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+-->
+</style>
+<body onload="initial();">
+	<h1>注文の更新</h1>
+	<table>
+		<form method="post" action="/edit">
+			<input type="hidden" id="id" name="id">
+			<tr>
+				<th>名前:</th>
+				<td><input type="text" id="title" name="title"></td>
+			</tr>
+			<tr>
+				<th>枚数:</th>
+				<td><input type="text" id="count" name="count"></td>
+			</tr>
+			<tr>
+				<th>住所:</th>
+				<td><textarea id="address" name="address"></textarea></td>
+			</tr>
+			<tr>
+				<th>配達:</th>
+				<td><input type="text" id="haitatsu" name="haitatsu"></td>
+			</tr>
+			<tr>
+				<th>決済方法</th>
+				<td><input type="text" id="pay" name="pay"></td>
+			</tr>
+			<tr>
+				<th></th>
+				<td><input type="submit" value="変更"></td>
+			</tr>
+		</form>
+	</table>
+	<br>
+	<div>
+		<a href="shopsdata.html">注文一覧に戻る</a>
+	</div>
+</body>
+</html>
+

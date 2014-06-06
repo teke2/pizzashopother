@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>来店注文一覧</title>
+<script type="text/javascript" src="lib.js"></script>
+<script type="text/javascript">
+<!--
+	function callback(request) {
+		var json = eval(request.responseText);
+		var res2 = '';
+		if (json.length == 1) {
+			res2 += '<tr><td>' + json[0].id + '</td></tr>';
+			res2 += '<tr><td>' + json[0].title + '</td></tr>';
+			res2 += '<tr><td>' + json[0].count + '</td></tr>';
+			res2 += '<tr><td>' + json[0].price + '</td></tr>';
+			res2 += '<tr><td>' + json[0].phone + '</td></tr>';
+			res2 += '<tr><td>' + json[0].eat + '</td></tr>';
+			res2 += '<tr><td>' + json[0].time + '</td></tr>';
+		} else {
+			for (var i = 0; i < json.length; i++) {
+				res2 += '<tr><td><a href="javascript:return false;" onclick="getData2('
+						+ json[i].id + ');">' + json[i].id + '</a></td>';
+				res2 += '<td>' + json[i].title + '</td>' + '<td>'
+						+ json[i].date + '</td>'
+						+ '<td><a href="edit2.html?id=' + json[i].id
+						+ '">Edit</td>' + '<td><a href="del2.html?id='
+						+ json[i].id + '">Delete</td></tr>';
+			}
+		}
+		var obj = document.getElementById("datatable");
+		obj.innerHTML = res2;
+
+	}
+//-->
+</script>
+</head>
+
+<style type="text/css">
+<!--
+body {
+	background-color: #ffffff;
+	background-image: url(pizza.jpeg);
+	background-position: right bottom;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+-->
+</style>
+<body onload="getData2(null);">
+	<h1>来店注文一覧</h1>
+
+	<table id="datatable" border="2">
+		<tr>
+			<td>wait...</td>
+		</tr>
+	</table>
+	<br>
+	<div>
+		<a href="shopselect.html">注文選択に戻る</a>
+	</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+<TITLE>メール送信フォーム</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=EUC-JP">
+</HEAD>
+<style type="text/css">
+<!--
+body {
+	background-color: #ffffff;
+	background-image: url(pizza.jpeg);
+	background-position: right bottom;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+-->
+</style>
+<BODY>
+	<CENTER>
+		<h1>お問い合わせフォーム</h1>
+		<br>
+		<table cellpadding="1" cellspacing="24" bgcolor="#99ddee"
+			background="check01.gif" style="border: solid 1px #333;">
+			<tr>
+				<td bgcolor="#333333">
+					<table cellspacing="17" bgcolor="#ffffff" style="font: 13px;">
+						<form action="mailto:g12937nm@gm.tsuda.ac.jp" method="post"
+							enctype="text/plain">
+							<tr>
+								<td align="right">名前 ：</td>
+								<td><input type="text" name="名前：" size="32"
+									style="border: solid 1px #555;"></td>
+							</tr>
+							<tr>
+								<td align="right">メール ：</td>
+								<td><input type="text" name="MAIL：" size="32"
+									style="border: solid 1px #555;"></td>
+							</tr>
+							<tr>
+								<td align="right">住所 ：</td>
+								<td><input type="text" name="URL：" size="32"
+									style="border: solid 1px #555;"></td>
+							</tr>
+							<tr valign="top">
+								<td align="right">内容 ：</td>
+								<td><textarea rows="7" name="内容：" cols="43"
+										style="border: solid 1px #555; scrollbar-base-color: #c4c4a4;">
+</textarea></td>
+							</tr>
+							<tr align="center">
+								<td colspan="2"><input type="submit" value="　送信する　"></td>
+							</tr>
+						</form>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</CENTER>
+</BODY>
+
+</HTML>
