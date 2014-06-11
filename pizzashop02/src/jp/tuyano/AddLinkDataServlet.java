@@ -27,6 +27,7 @@ public class AddLinkDataServlet extends HttpServlet {
 		String ad3 = req.getParameter("address");
 		String ad1 = req.getParameter("address1");
 		String ad2 = req.getParameter("address2");
+		String topping  =req.getParameter("pizza");
 		if (ad1.equals("東京都")) {
 			if (ad2.equals("1"))
 				ad2 = "小平市";
@@ -76,6 +77,16 @@ public class AddLinkDataServlet extends HttpServlet {
 		String phone = req.getParameter("phone");
 		String haitatsu = "×";
 		int price2 = Integer.parseInt(price);
+/*		if(topping.equals("トマト"))price2 +=50;
+		else if(topping.equals("チーズ"))price2 +=70;
+		else if(topping.equals("バジル"))price2 +=60;
+		else if(topping.equals("サラミ"))price2 +=100;
+*/
+		if (topping.equals("なし")) price2 +=0;
+		else if (topping.equals("トマト")) price2 += 50;
+		else if (topping.equals("チーズ")) price += 70;
+		else if (topping.equals("バジル")) price += 60;
+		else if (topping.equals("サラミ")) price += 100;
 		int count2 = Integer.parseInt(count);
 		int price3 = 0;
 		price3 = price2 * count2;

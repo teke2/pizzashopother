@@ -29,36 +29,48 @@ public class AddLinkDataServlet2 extends HttpServlet {
 		String time = day + " " + time1;
 		String ad1 = req.getParameter("eat");
 		String ad2 = req.getParameter("eat2");
-		if (ad1.equals("お店でたべる")) {
+		String topping  =req.getParameter("pizza");
+		if (ad1.equals("������������������")) {
 			if (ad2.equals("1"))
-				ad2 = "1人";
+				ad2 = "1���";
 			else if (ad2.equals("2"))
-				ad2 = "2人";
+				ad2 = "2���";
 			else if (ad2.equals("3"))
-				ad2 = "3人";
+				ad2 = "3���";
 			else if (ad2.equals("4"))
-				ad2 = "4人";
+				ad2 = "4���";
 			else if (ad2.equals("5"))
-				ad2 = "5人";
+				ad2 = "5���";
 			else if (ad2.equals("6"))
-				ad2 = "6人";
+				ad2 = "6���";
 			else if (ad2.equals("7"))
-				ad2 = "7人";
+				ad2 = "7���";
 			else if (ad2.equals("8"))
-				ad2 = "8人";
+				ad2 = "8���";
 			else if (ad2.equals("9"))
-				ad2 = "9人";
+				ad2 = "9���";
 			else if (ad2.equals("10"))
-				ad2 = "10人";
+				ad2 = "10���";
 		}
-		if (ad1.equals("テイクアウト")) {
-			ad2 = "×";
+		if (ad1.equals("������������������")) {
+			ad2 = "��";
 		}
 		String ad = ad1 + " / " + ad2;
 		Date date = Calendar.getInstance().getTime();
 		String price = req.getParameter("price");
 		String phone = req.getParameter("phone");
 		int price2 = Integer.parseInt(price);
+		/*
+		if(topping.equals("トマト"))price2 +=50;
+		else if(topping.equals("チーズ"))price2 +=70;
+		else if(topping.equals("バジル"))price2 +=60;
+		else if(topping.equals("サラミ"))price2 +=100;
+		*/
+		if (topping.equals("なし")) price2 +=0;
+		else if (topping.equals("トマト")) price2 += 50;
+		else if (topping.equals("チーズ")) price += 70;
+		else if (topping.equals("バジル")) price += 60;
+		else if (topping.equals("サラミ")) price += 100;
 		int count2 = Integer.parseInt(count);
 		int price3 = 0;
 		price3 = price2 * count2;

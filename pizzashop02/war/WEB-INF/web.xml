@@ -89,4 +89,14 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
     <url-pattern>/del2</url-pattern>
 </servlet-mapping>
 
+<servlet>
+    <servlet-name>my</servlet-name>
+    <servlet-class>jp.tuyano.MyServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>my</servlet-name>
+    <url-pattern>/login</url-pattern>
+</servlet-mapping>
+
+
 </web-app>
